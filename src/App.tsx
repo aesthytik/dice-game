@@ -2,12 +2,13 @@ import { useState } from 'react';
 import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import RollDice from './components/RollDice';
+import DiceContainer from './components/DiceContainer';
+
 // import { take } from 'lodash';
 library.add(fas);
 
 function App() {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState('cat');
   const values = value.split('');
   // console.log('values', values);
   const alpha = Array.from(Array(26)).map((e, i) => i + 65);
@@ -40,8 +41,7 @@ function App() {
                 onChange={(e) => setValue(e.target.value)}
               />
 
-              <RollDice
-                sides={['one', 'two', 'three', 'four', 'five', 'six']}
+              <DiceContainer
                 result={[
                   diceOneCharacters,
                   diceTwoCharacters,
@@ -51,6 +51,18 @@ function App() {
                 setValue={setValue}
                 values={values}
               />
+
+              {/* <RollDice
+                sides={['one', 'two', 'three', 'four', 'five', 'six']}
+                result={[
+                  diceOneCharacters,
+                  diceTwoCharacters,
+                  diceThreeCharacters,
+                  diceFourCharacters,
+                ]}
+                setValue={setValue}
+                values={values}
+              /> */}
             </div>
           </div>
         </div>
